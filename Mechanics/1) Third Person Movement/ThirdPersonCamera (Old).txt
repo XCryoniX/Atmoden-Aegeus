@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -45,8 +45,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
-        x += Input.GetAxis("Mouse X") * sensitivity;
-        y += (-Input.GetAxis("Mouse Y") * sensitivity);
+        x = Input.GetAxis("Mouse X") * sensitivity;
+        y = Input.GetAxis("Mouse Y") * sensitivity;
 
         //Placed Code Block A below to prevent jittery movement from player
         //Code Block A Start
@@ -90,7 +90,12 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-        y = Mathf.Clamp(y, -30.0f, 60.0f);
+        vecToClamp = cameraTarget.position + camera.TransformDirection(new Vector3(-x, -y, cameraZDistance));
+        clampY = Mathf.Clamp(vecToClamp.y, 0.5f, 4.0f);
+        clampedVec = new Vector3(vecToClamp.x, clampY, vecToClamp.z);
+
+        camera.position = clampedVec;
+        camera.LookAt(cameraTarget.position);
         //Code Block B End
 
         //Placed Code Block C below to prevent jittery rotation from player
@@ -104,10 +109,5 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 dir = new Vector3(0, 0, cameraZDistance);
-        Quaternion rotation = Quaternion.Euler(y, x, 0.0f);
-
-        camera.position = cameraTarget.position + rotation * dir;
-        camera.LookAt(cameraTarget.position);
     }
 }
