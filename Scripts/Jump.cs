@@ -29,11 +29,6 @@ public class Jump : MonoBehaviour
     {
         Debug.DrawRay(transform.position, -Vector3.up * groundRayEnd, Color.yellow);
 
-        if(Input.GetKey(KeyCode.W))
-        {
-            rb.MovePosition(transform.position + transform.forward * Time.deltaTime * 5.0f);
-        }
-
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(new Vector3(0.0f, jumpForceMagnitude, 0.0f), ForceMode.Impulse);

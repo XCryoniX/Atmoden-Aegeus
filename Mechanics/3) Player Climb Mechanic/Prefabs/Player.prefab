@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 8924164110730621857}
   - component: {fileID: 8924164110730621861}
   - component: {fileID: 8924164110730621856}
-  - component: {fileID: 2695096275467116557}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -264,22 +263,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2695096275467116557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8924164110730622047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908a40ec1d6ac124e9fcc30cdb3763e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  platformTag: 48
-  platformForceMagnitude: 400
-  jumpForceMagnitude: 1500
-  groundRayEnd: 1
 --- !u!1 &8924164110826170643
 GameObject:
   m_ObjectHideFlags: 0
